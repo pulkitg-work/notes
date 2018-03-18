@@ -1,0 +1,58 @@
+Why Mock:
+- improved text execution speed 
+- support paralle development stream
+- improve test reliability
+- reduce development/testing costs
+
+==
+Getting started with Mocking and Moq
+Test Doubles: Fake, Dummy, Stubs, Mocks
+- generic term for any case where you replace a production object for testing purposes 
+
+fake: working implementation, not suitable for productions
+dummies: passed around, never used/accessed, satisfy parameters requirements
+stubs: (pass as dependencies to classes we are testing) provide answer to calls, property gets, method reutrn values 
+mocks: expect/verify calls (properties and methods)
+
+==
+Mocking method calls 
+Mock.Object -> to access real mocked object 
+Setup() to return specific values
+Argument matching in mocked methods 
+- It.IsAny()
+- It.IsInRange()
+MockBehavior.Strict/Loose (by default: Loose)
+Mocking methods with out parameters
+
+==
+Mocking properties 
+setup properties of mock to return specific values (using .Returns())
+auto-mocking properties hierarchies 
+return default values for reference types rather than nulls for dependencies (DefaultValue.Mock)
+Enable change tracking:
+- SetupProperty()
+- SetupAllProperties()
+
+==
+Verifying Mock behavior 
+.Verify: verify if a specific method is called 
+Times.Never
+Times.Exactly() or Times.Once
+Properties gets references: VerifyGet()
+
+==
+Additional Mocking 
+- ability to mock exceptions 
+- ability to mock events 
+
+.Throws<Exception>();
+.Raise()
+.Raises()
+
+.SetupSequence() -> return different values 
+Mocked members of concrete types
+Mocked virtual protected
+using Moq.Protected;
+.Protected()
+
+Mock.Of<> -> LINQ expression
